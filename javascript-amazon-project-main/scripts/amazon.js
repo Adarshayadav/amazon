@@ -81,7 +81,16 @@
           quantity : 1  //if not there then add cart
         });
       }
-      console.log(cart);
+
+
+        let cartQuantity = 0;
+      cart.forEach((item) => {//thus is going to loop through each object in the cart
+        cartQuantity += item.quantity; //this will add all quantities and save 
+      });
+
+
+      document.querySelector('.js-cart-quantity')
+      .innerHTML = cartQuantity;
     });
   });
 
