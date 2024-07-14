@@ -50,3 +50,16 @@ function saveToStorage() {
 
   saveToStorage();
  };
+
+ export function updateDeliveryOption(productId, deliveryOptionId){
+    let matchingItem;
+        //This is the interactive js code 
+        cart.forEach((cartItem) => {
+          if (productId === cartItem.productId){
+            matchingItem = cartItem;//here checking product is there antha 
+          }
+        });
+
+        matchingItem.deliveryOptionId = deliveryOptionId;
+        saveToStorage();
+ };
