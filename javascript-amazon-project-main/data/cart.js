@@ -68,3 +68,21 @@ function saveToStorage() {
         matchingItem.deliveryOptionId = deliveryOptionId;
         saveToStorage();
  };
+
+
+ export let products = [];
+
+ export function loadCart(fun) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', () => {
+     console.log(xhr.response);
+    console.log('load products');
+
+    fun();//running renderProductsGrid in amazon.js
+  })
+
+  xhr.open('GET', 'https://supersimplebackend.dev/cart');
+  xhr.send();//asynchronous
+ };
+ 
