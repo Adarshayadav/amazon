@@ -106,9 +106,13 @@ export let products = [];
         console.log('load products');
         
         //fun();//running renderProductsGrid in amazon.js
+      })
+      .catch((error) =>{
+        console.log('unexpect error. Please try again later')
       });
       return promise;
     };
+    
 
     /*
     loadProductsFetch().then(() => {
@@ -119,7 +123,7 @@ export let products = [];
  export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
-  xhr.addEventListener('load', () => {
+  xhr.addEventListener('load', (error) => {
      products =JSON.parse(xhr.response).map((productDetails) =>{
       if(productDetails.type === 'clothing'){
         return new Clothing(productDetails);
@@ -130,10 +134,15 @@ export let products = [];
 
     fun();//running renderProductsGrid in amazon.js
   })
+//error handling
+  xhr.addEventListener('error', () => {
+    console.log('unexpect error. Please try again later');
+  });
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();//asynchronous
  }
+ 
  
 
 /*
