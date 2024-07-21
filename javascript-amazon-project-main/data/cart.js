@@ -77,7 +77,7 @@ function saveToStorage() {
 
   xhr.addEventListener('load', () => {
      console.log(xhr.response);
-    console.log('load products');
+    // console.log('load products');
 
     fun();//running renderProductsGrid in amazon.js
   })
